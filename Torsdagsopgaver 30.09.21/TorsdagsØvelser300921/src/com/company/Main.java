@@ -20,7 +20,7 @@ public class Main {
             inputFromFile += scan.nextLine();                     // adds each line to the inputFromFile string.
         }
 
-        text = inputFromFile.split(" ");                    // Creates and array of strings, where each element is a single word from the file.
+        text = inputFromFile.split("[ ,.]");                    // Creates and array of strings, where each element is a single word from the file.
         System.out.println(text.length);
 
         printWordsStartingWith("Ø");
@@ -33,7 +33,7 @@ public class Main {
 
         printMostFrequentLetter();
 
-        printLessFrequentLetter();
+        //printLessFrequentLetter();
         //test dine metoder ved at kalde dem her:
 
 
@@ -93,13 +93,43 @@ public class Main {
     }
 
     //Opgave 3
+    private static char printMostFrequentLetter() {
+  char mostFrequentLetter = ' ';
+    int counter = 0;
+    int[] charCount = new int[Character.MAX_VALUE +1];
+    for (String s : text) {
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            charCount[ch]++;
+            if (charCount[ch] >= counter) {
+                counter = charCount[ch];
+                mostFrequentLetter = ch;
+            }
+
+        }
+        System.out.println("The max character is " + mostFrequentLetter + " and displayed " + counter + "times");
+
+    }
+    return mostFrequentLetter;
+    }
+
+
+
+
+
+
+
+
+
+
+
     //Vi laver en String array med 29 bogstaver fra alfabetet (a-å)
     //Vi laver en int array med 29 pladser, der skal gemme vores bogstav og tælle hvor mange gange det er blevet brugt
     //Vi bruger en for loop som tidligere er defineret
     //Vi bruger en for loop til at køre igennem hele teksten og kører igennem hver eneste ords længde
     //Vi bruger equalsIgnoreCase så den tager både store og små bogstaver
 
-    private static void printMostFrequentLetter() {
+    /*private static void printMostFrequentLetter() {
         String[] characters = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "æ", "ø", "å"};
         int[] timesUsed = new int[29];
         for (String s : text) {
@@ -120,10 +150,10 @@ public class Main {
             indexOfMostUsed = i;
         }
         mostUsedLetter = mostUsed;
-        System.out.println(characters[indexOfMostUsed] + " has been used " + mostUsed);
+        System.out.println(characters[indexOfMostUsed] + " has been used " + mostUsed);*/
     }
     //Opgave 4
-    private static void printLessFrequentLetter(){
+    /*private static void printLessFrequentLetter(){
         int mostUsedLetter = 0;
         String[] characters = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "æ", "ø", "å"};
         int [] timesUsed = new int[29];
@@ -150,7 +180,7 @@ public class Main {
         System.out.println(characters[indexOfLeastUsed] + " has been used " + leastUsed + " times");
 
         }
-    }
+    }*/
 
 
 /*private static char printMostFrequentLetter() {
